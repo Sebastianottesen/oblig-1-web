@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"> <!-- Angir tegnsettet til UTF-8 for å støtte internasjonale tegn -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Angir visningsinnstillingene for mobile enheter -->
+    <title>Kjøp kinobillett</title> <!-- Setter tittelen på nettsiden -->
+</head>
+<body>
+<h1>Kjøp kinobillett</h1>
+<form id="ticketForm"> <!-- Skjema for å registrere kinobilletter -->
+    <label for="name">Navn:</label> <!-- Etikett for navneinndatafeltet -->
+    <input type="text" id="name" required><br><br> <!-- Tekstfelt for brukerens navn -->
+    <label for="etternavn">Etternavn:</label> <!-- Etikett for etternavneinndatafeltet -->
+    <input type="text" id="etternavn" required><br><br> <!-- Tekstfelt for brukerens etternavn -->
+    <label for="email">E-postadresse:</label> <!-- Etikett for e-postadresseninndatafeltet -->
+    <input type="email" id="email" required><br><br> <!-- Tekstfelt for brukerens e-postadresse -->
+    <label for="phone">Telefonnummer:</label> <!-- Etikett for telefonnummerinndatafeltet -->
+    <input type="tel" id="phone" required><br><br> <!-- Tekstfelt for brukerens telefonnummer -->
+    <button type="button" onclick="buyTicket()">Kjøp billett</button> <!-- Knapp for å kjøpe billett, utløser en JavaScript-funksjon -->
+</form>
+
+<h2>Alle billetter</h2>
+<ul id="ticketList"></ul>
+
+<button type="button" onclick="deleteAllTickets()">Slett alle billettene</button> <!-- Knapp for å slette alle billetter, utløser en JavaScript-funksjon -->
+
+<script src="oblig1.js"></script> <!-- Inkluderer JavaScript-filen for funksjonaliteten -->
+</body>
+</html>
