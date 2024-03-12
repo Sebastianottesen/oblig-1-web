@@ -1,4 +1,4 @@
-let tickets = [] // Array for å lagre kinobilletter
+let tickets = []; // Array for å lagre kinobilletter
 
 function buyTicket() {
     // Henter verdier fra inndatafeltene
@@ -12,47 +12,69 @@ function buyTicket() {
         alert('Vennligst fyll ut alle feltene.');
         return;
     }
+
     // Validerer navn
-    if (!validateName(name))
+    if (!validateName(name)) {
         alert("Ugyldig navn. Bruk kun bokstaver");
+        return; // Avslutt funksjonen hvis valideringen mislykkes
+    }
+
     // Validerer etternavn
-    if (!validateEtternavn(etternavn))
+    if (!validateEtternavn(etternavn)) {
         alert("Ugyldig etternavn. Bruk kun bokstaver");
+        return; // Avslutt funksjonen hvis valideringen mislykkes
+    }
+
     // Validerer email
-    if (!validateEmail(email))
+    if (!validateEmail(email)) {
         alert('Ugyldig epost.');
+        return; // Avslutt funksjonen hvis valideringen mislykkes
+    }
+
     // Validerer phone
-    if (!validatePhone(phone))
-        alert ("Ugyldig telefonnummer");
+    if (!validatePhone(phone)) {
+        alert("Ugyldig telefonnummer");
+        return; // Avslutt funksjonen hvis valideringen mislykkes
+    }
 
     // Oppretter billettobjekt og legger til i array
-    const ticket = { name, email, phone };
+    const ticket = {name, etternavn, email, phone};
     tickets.push(ticket);
 }
+
 //tester felte etter feilmelding hvis det er noe annet enn bokstaver
 function validateName(name) {
-    if (!/^[a-zA-Z]+$/.test(name)) return false
-    else return true
+    if (!/^[a-zA-Z]+$/.test(name)) return false;
+    else {
+        return true;
+    }
 }
-//tester felte etter feilmelding hvis det er noe annet enn bokstaver
+
+//tester feltet etter feilmelding hvis det er noe annet enn bokstaver
 function validateEtternavn(etternavn) {
-    if (!/^[a-zA-Z]+$/.test(etternavn)) return false
-    else return true
+    if (!/^[a-zA-Z]+$/.test(etternavn)) return false;
+    else {
+        return true;
+    }
 }
-//Tester felte for spesifikke symboler = sant
+
+//Teste feltet for spesifikke symboler = sant
+//Fikk advarsel om .indexof(), så brukte includes() isteden.
 function validateEmail(email) {
-    if (email.indexOf("@") == -1)
-        return false
-    else if (email.indexOf(".") == -1)
-        return false
-    else return true
+    if (email.includes("@") == -1 || email.includes(".") == -1) return false;
+    else {
+        return true;
+    }
 }
+
 function validatePhone(phone) {
-    if (phone.length != 8) return false;
-    else if (!/^[0-9]+$/.test(phone)) return false
-    else return true
+    if (phone.length != 8 || !/^[0-9]+$/.test(phone)) return false;
+    return true;
 }
-//Sletter alle biletter
+
+//Sletter alle billetter
 function deleteAllTickets() {
-    tickets = []
+    tickets = [];
 }
+
+
